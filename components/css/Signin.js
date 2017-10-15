@@ -6,15 +6,20 @@ const Styles = StyleSheet.create({
         height, 
         width:width
     },
+    mainDiv:{
+        flex: 1,
+     
+        justifyContent: "center",
+        alignItems: "center"
+    },
     logo: {
         height: 60,
         width: (width*60)/100,
-        marginTop:"20%",
-        alignItems: "center",
-        
+        marginTop:"20%", 
     },
     heading:{
-        fontSize:30,
+        fontSize:40,
+        fontWeight: "100",
         backgroundColor:"transparent",
         width:"auto",
         marginTop:"20%",
@@ -22,8 +27,11 @@ const Styles = StyleSheet.create({
         color:"white",
     },
     input:{
-        height: 40, 
+        height: 50, 
+        width:(width*80)/100,
+        color:"white",
         borderColor: "gray",
+        fontWeight: "100",
         backgroundColor:"rgba(0, 0, 0, 0.1)",
         paddingLeft:20,
         borderRadius:5,
@@ -37,7 +45,6 @@ const Styles = StyleSheet.create({
         backgroundColor:"#4DCBA8",
         borderRadius:35,
         padding:10,
-        marginLeft:"20%",
         marginTop:30,
         width:70,
         height:70,
