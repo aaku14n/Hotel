@@ -8,7 +8,6 @@ const Styles = StyleSheet.create({
     },
     mainDiv:{
         flex: 1,
-     
         justifyContent: "center",
         alignItems: "center"
     },
