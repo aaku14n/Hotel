@@ -1,6 +1,6 @@
 import React from "react"
 import { TextInput ,Alert} from 'react-native';
-import Styles from "./css/Signin";
+import Styles from "./css/SigninStyle";
 export default class InputBox extends React.Component{
     render = () => {
         return <TextInput style={Styles.input} 
@@ -9,6 +9,7 @@ export default class InputBox extends React.Component{
         keyboardType={this.props.keyboardType}
         secureTextEntry={this.props.secureTextEntry}
         onEndEditing={()=>{ this.props.setData(this.textInput._lastNativeText) }}
+        underlineColorAndroid='rgba(0,0,0,0)'
         />
     };
 }

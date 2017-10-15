@@ -1,7 +1,9 @@
 import React from "react";
 import {Text, View, Image ,Alert ,TouchableOpacity} from "react-native";
 import InputBox from "./InputBox";
-import Styles from "./css/Signin";
+import Popup from "./Popup";
+import Styles from "./css/SigninStyle";
+import {FAILURE,SUCCESS} from "../actions/config";
 export default class Signin extends React.Component{
     constructor(){
         super();
@@ -20,6 +22,8 @@ export default class Signin extends React.Component{
     }
     render(){
         return  <View style={Styles.mainDiv}>
+            {this.props.isLogedin.status === SUCCESS && <Popup message={"You signed In Succesfully"}/>}
+            {this.props.isLogedin.status === FAILURE && <Popup message={"Sorry We did'nt find You"}/>}
             <View>
                 <Image source={require("./img/XelpmocLogoWhite.png")} style={Styles.logo}/>
             </View>
