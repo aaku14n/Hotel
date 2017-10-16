@@ -8,7 +8,7 @@ export default class UserChoice extends React.Component{
     constructor(){
         super();
         this.state={
-            routeTo:null
+            routeTo:"Room"
         };
     }
     routeTo(){

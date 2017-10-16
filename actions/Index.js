@@ -37,7 +37,6 @@ const userLoginReset = () =>{
 };
 
 export function userLogin(userData){
-    
 return async (dispatch, getState, api) => {
     setTimeout(()=>dispatch(userLoginReset()),3000);
     dispatch(userLoginRequest());

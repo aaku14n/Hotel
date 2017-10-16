@@ -14,6 +14,7 @@ const Styles = StyleSheet.create({
         width:"75%",
         height:30,
         marginRight:5,
+        top:0,
     },
     InputBoxSelected:{
         paddingLeft:15,
@@ -21,7 +22,8 @@ const Styles = StyleSheet.create({
         height:30,
         marginRight:5,
         borderBottomWidth:1,
-        borderColor:"#15d441"
+        borderColor:"#15d441",
+        over
     },
     InputBoxBodyButtonDiv:{
     width:"25%",
