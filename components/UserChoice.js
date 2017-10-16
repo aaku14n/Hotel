@@ -1,40 +1,42 @@
 import React from "react";
 import {View,Text,Image,TouchableOpacity,Alert ,NavigatorIOS,TouchableHighlight} from "react-native";
+import RoomBook from "./RoomBook";
+import CallBook from "./CallBook";
+import SubHeader from "./SubHeader";
 import Styles from "./css/UserChoiceStyle";
 export default class UserChoice extends React.Component{
-    constructor(props, context) {
-        super(props, context);
-        this._onForward = this._onForward.bind(this);
-      }
-    
-      _onForward() {
-        let nextIndex = ++this.props.index;
-        this.props.navigator.push({
-          component: <View><Text>dflfdjl</Text></View>,
-          title: 'Scene ' + nextIndex,
-          passProps: {index: nextIndex}
-        });
-      }
+    constructor(){
+        super();
+        this.state={
+            routeTo:null
+        };
+    }
+    routeTo(){
+        this.setState({routeTo:null})
+    }
     render = () =>{
-        return (<View style={Styles.UserChoice}>
-                    <Text style={Styles.header}>
-                        Select Anyone for Booking
-                    </Text>
+        return !this.state.routeTo ? <View style={Styles.UserChoice}>
+<SubHeader title={"Select Anyone for Booking"} 
+    routeTo={()=>this.routeTo()}/>
                     <View style={Styles.Container}>
                         <TouchableOpacity style={Styles.divAddRoom} 
-                        onPress={()=>this._onForward}
+                        onPress={()=>this.setState({routeTo:"Room"})}
                         >
                             <Image source={require("./img/conRoomWhite.png")} style={Styles.addRoom}/>
                             <Text style={Styles.addRoomCaption}>Room</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={Styles.divAddRoom}
-                        onPress={()=>Alert.alert("i am on working ..")}
+                        onPress={()=>this.setState({routeTo:"Call"})}
                         >
                             <Image source={require("./img/conCallWhite.png")} style={Styles.addRoom}/>
                             <Text style={Styles.addCallCaption}>Call</Text>
                         </TouchableOpacity>
                     </View>
         </View>
-        );
+        :
+        this.state.routeTo ==="Room" ? 
+       <RoomBook routeTo={()=>this.routeTo()} />
+        :
+        <CallBook routeTo={()=>this.routeTo()} />;
     }
 }

@@ -15,10 +15,9 @@ export default class Signin extends React.Component{
 
     sendEmailAndPassword(){
         const user = {};
-        user.email = this.state.email,
+        user.email_id = this.state.email,
         user.password = this.state.password;
         this.props.login(user);
-        Alert.alert(this.state.email);
     }
     render(){
         return  <View style={Styles.mainDiv}>

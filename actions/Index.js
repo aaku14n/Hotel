@@ -42,7 +42,9 @@ return async (dispatch, getState, api) => {
     setTimeout(()=>dispatch(userLoginReset()),3000);
     dispatch(userLoginRequest());
     try {
-      dispatch(userLoginSuccess(userData));
+        const result = await api.login(userData);
+        if(result.data.statusCode == 200) dispatch(userLoginSuccess(result.data.body));
+        else dispatch(userLoginFailure(result.data.body));
     } catch (e) {
       dispatch(userLoginFailure(e.message));
     }

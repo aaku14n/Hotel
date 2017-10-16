@@ -5,19 +5,6 @@ const Styles = StyleSheet.create({
         height,
         width,
     },
-    header:{
-        height:80,
-        fontSize: 20,
-        paddingTop:50,
-        fontWeight:"600",
-        paddingLeft:30,
-        shadowColor:"black",
-        shadowOpacity:0.6,
-        shadowOffset: {
-            width: 0, 
-            height: 3,
-        }
-    },
     Container:{
         flex: 1,
         justifyContent: "center",
