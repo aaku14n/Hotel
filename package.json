@@ -24,9 +24,11 @@
     "axios": "^0.16.2",
     "eslint": "^4.8.0",
     "expo": "^21.0.2",
+    "lodash": "^4.17.4",
     "react": "16.0.0-alpha.12",
     "react-native": "^0.48.4",
     "react-native-keyboard-aware-scroll-view": "^0.3.0",
+    "react-native-material-dropdown": "^0.5.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"

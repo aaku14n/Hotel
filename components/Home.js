@@ -11,7 +11,7 @@ export default class Home extends React.Component{
             resetScrollToCoords={{ x: 0, y: 0 }}
             scrollEnabled={false}
         >
-            {!this.props.isLogedin.isLogedin ?
+            {this.props.isLogedin.isLogedin ?
                 <LinearGradient colors={["#3D669C", "#9866CC"]}
                     style={Styles.HomeSignin}
                 >
