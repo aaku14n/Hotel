@@ -5,18 +5,6 @@ const Styles = StyleSheet.create({
         height,
         width,
     },
-    header:{
-        height:80,
-        fontSize: 30,
-        paddingTop:40,
-        paddingLeft:30,
-        shadowColor:"black",
-        shadowOpacity:0.6,
-        shadowOffset: {
-            width: 0, 
-            height: 3,
-        }
-    },
     Container:{
         flex: 1,
         justifyContent: "center",
@@ -40,6 +28,20 @@ const Styles = StyleSheet.create({
         width:40,
         height:40,
         
+    },
+    addRoomCaption:{
+        position:"absolute",
+        color:"white",
+        fontSize:12,
+        bottom:10,
+        left:"50%"
+    },
+    addCallCaption:{
+        position:"absolute",
+        color:"white",
+        fontSize:12,
+        bottom:5,
+        left:"65%"
     }
 });
 export default Styles;
