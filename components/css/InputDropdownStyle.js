@@ -7,14 +7,17 @@ const Styles = StyleSheet.create({
         height:50,
         marginBottom:10,
         justifyContent:"center",
-        flexDirection:"row"
+        flexDirection:"row",
+        zIndex:100000,
     },
     InputBox:{
         paddingLeft:15,
+        justifyContent:"center",
         width:"75%",
         height:30,
         marginRight:5,
         top:0,
+        
     },
     InputBoxSelected:{
         paddingLeft:15,
@@ -23,16 +26,15 @@ const Styles = StyleSheet.create({
         marginRight:5,
         borderBottomWidth:1,
         borderColor:"#15d441",
-        over
     },
     InputBoxBodyButtonDiv:{
-    width:"25%",
-    height:25,
-    backgroundColor:"#1e35a7",
-    top:2.5,
-    paddingTop:2,
-    paddingBottom:2,
-    alignItems:"center"
+        width:"25%",
+        height:25,
+        backgroundColor:"#1e35a7",
+        top:2.5,
+        paddingTop:2,
+        paddingBottom:2,
+        alignItems:"center"
     },
     InputBoxBodyButton:{
         padding:5,
@@ -41,6 +43,22 @@ const Styles = StyleSheet.create({
     },
     statusOfInput:{
         top:7,
+    },
+    DropdownHeader:{
+        height:"100%",
+        fontSize:20
+    },
+    DropdownBody:{
+        position:"absolute",
+        backgroundColor:"#999",
+        zIndex:100000,
+        left:15,
+        top:40,
+        overflow:"scroll"
+    },
+    DropdownBodyItem:{
+        fontSize:18,
+        margin:10, 
     }
 });
 export default Styles;

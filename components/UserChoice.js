@@ -14,7 +14,7 @@ export default class UserChoice extends React.Component{
     routeTo(){
         this.setState({routeTo:null})
     }
-    render = () =>{
+    render = () =>{ 
         return !this.state.routeTo ? <View style={Styles.UserChoice}>
 <SubHeader title={"Select Anyone for Booking"} 
     routeTo={()=>this.routeTo()}/>
@@ -35,7 +35,10 @@ export default class UserChoice extends React.Component{
         </View>
         :
         this.state.routeTo ==="Room" ? 
-       <RoomBook routeTo={()=>this.routeTo()} />
+       <RoomBook 
+                roomList={this.props.roomList}
+                routeTo={()=>this.routeTo()} 
+                getRoomList={()=>this.props.getRoomList()} />
         :
         <CallBook routeTo={()=>this.routeTo()} />;
     }
