@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import UserChoice from "../components/UserChoice";
-import { userChoice,getRoomList } from "../actions/Index";
+import { userChoice,getRoomList, fetchRoomByDate } from "../actions/Index";
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -9,12 +9,16 @@ const mapDispatchToProps = dispatch => {
         },
         getRoomList: ()=>{
             dispatch(getRoomList());
+        },
+        fetchRoomByDate: (room_id,date) =>{
+            dispatch(fetchRoomByDate(room_id,date));
         }
     };
 };
 const mapStateToProps = state => {
     return {
-        roomList:state.roomList.roomList
+        roomList:state.roomList.roomList,
+        roomByDate:state.roomByDate.roomByDate
     };
 };
 const SigninContainer = connect(mapStateToProps,mapDispatchToProps)(UserChoice);
