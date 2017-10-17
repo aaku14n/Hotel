@@ -6,6 +6,9 @@ import {
     GET_ROOM_REQUEST,
     GET_ROOM_FAILURE,
     GET_ROOM_SUCCESS,
+    GET_ROOM_BY_DATE_REQUEST,
+    GET_ROOM_BY_DATE_FAILURE,
+    GET_ROOM_BY_DATE_SUCCESS,
     REQUEST,
     SUCCESS,
     FAILURE
@@ -83,6 +86,42 @@ return async (dispatch, getState, api) => {
         else dispatch(getRoomListFailure(result.data.body));
     } catch (e) {
       dispatch(getRoomListFailure(e.message));
+    }
+  };
+};
+
+const fetchRoomByDateRequest = () =>{
+    return {
+        type:GET_ROOM_BY_DATE_REQUEST,
+        status:REQUEST
+    };
+};
+
+const fetchRoomByDateSuccess = (userData) =>{
+    return {
+        type:GET_ROOM_BY_DATE_SUCCESS,
+        status:SUCCESS,
+        roomByDate:userData
+    };
+};
+const fetchRoomByDateFailure = (message) =>{
+    return {
+        type:GET_ROOM_BY_DATE_FAILURE,
+        status:FAILURE,
+        message
+    };
+};
+
+export function fetchRoomByDate(room_id,date){
+    const sendData = {room_id,booking_date:date};
+return async (dispatch, getState, api) => {
+    dispatch(fetchRoomByDateRequest());
+    try {
+        const result = await api.post(sendData);
+        if(result.data.status == 200) dispatch(fetchRoomByDateSuccess(result.data.result));
+        else dispatch(fetchRoomByDateFailure(result.data.body));
+    } catch (e) {
+      dispatch(fetchRoomByDateFailure(e.message));
     }
   };
 };

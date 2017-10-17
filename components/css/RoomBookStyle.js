@@ -19,7 +19,11 @@ const Styles = StyleSheet.create({
         flexDirection:"row",
         backgroundColor:"white",
         marginBottom:10,
-    },
+        },
+    borderColorRed:{
+        borderColor:"red",
+        borderWidth:1
+        },
     DateBodyItem:{
         width:"20%",
         borderWidth:0.5,
@@ -58,6 +62,15 @@ const Styles = StyleSheet.create({
         padding:5,
         backgroundColor:"#4DCBA8",
         borderColor:"#e6e6e6",
+        alignItems:"center",
+        justifyContent:"center",
+    },
+    timeBodyItemDisabled:{
+        width:"16.7%",
+        borderWidth:0.5,
+        padding:5,
+        backgroundColor:"#b1071c",
+        borderColor:"red",
         alignItems:"center",
         justifyContent:"center",
     },

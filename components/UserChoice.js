@@ -37,8 +37,10 @@ export default class UserChoice extends React.Component{
         this.state.routeTo ==="Room" ? 
        <RoomBook 
                 roomList={this.props.roomList}
+                roomByDate={this.props.roomByDate}
                 routeTo={()=>this.routeTo()} 
-                getRoomList={()=>this.props.getRoomList()} />
+                getRoomList={()=>this.props.getRoomList()}
+                fetchRoomByDate={(room_id,date)=>this.props.fetchRoomByDate(room_id,date)} />
         :
         <CallBook routeTo={()=>this.routeTo()} />;
     }
