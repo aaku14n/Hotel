@@ -8,8 +8,6 @@ import InputDropdown from "./InputDropdown";
 import SubHeader from "./SubHeader";
 import Styles from "./css/RoomBookStyle";
 const weekDayList = ["Sun","Mon","Tus","Wed","Thu","Fri","Sut"];
-const timeArray = [10,11,12,1,2,3,4,5,6,7,8,9];
-const durationArray = [30,45,1,1.5,2,2.5,3,4,5];
 const todayTemp = moment().utc("2015-10-24 20:00", "YYYY-MM-DD HH").local();
 export default class RoomBook extends React.Component{
     constructor(props)
@@ -54,7 +52,7 @@ export default class RoomBook extends React.Component{
         </TouchableOpacity>);
     }
     renderTime(time,type,status,booked){
-        var bookedStatus = false;
+        let bookedStatus = false;
        booked.map((item)=>{if(item.start<=time && time<item.end) bookedStatus=true});
         return (<TouchableOpacity 
             style={bookedStatus ? Styles.timeBodyItemDisabled : status && status == time ? Styles.timeBodyItemSelected : Styles.timeBodyItem} 
@@ -69,19 +67,8 @@ export default class RoomBook extends React.Component{
             <Text style={Styles.DateBodyItemDay}>{type}</Text>
         </TouchableOpacity>);
     }
-    renderDuration(duration,type,status,booked){
-        var bookedStatus = false;
-        booked.map((item)=>{
-            if (_.findIndex(timeArray,o=>o==item.start)  >  _.findIndex(timeArray,o=>o==this.state.time))
-                var timeAvilableIndex = _.findIndex(durationArray,o=>o==_.findIndex(timeArray,o=>o==item.start)  -  _.findIndex(timeArray,o=>o==this.state.time)) ;
-            // else 
-            //     var timeAvilableIndex = 8;
-            let timeEndIndex = _.findIndex(durationArray,o=>o==_.findIndex(timeArray,o=>o==item.start)  -  _.findIndex(timeArray,o=>o==this.state.time)) ;
-           
-            if(this.state.time !==null && _.findIndex(durationArray,o=>o==duration) > timeAvilableIndex ) 
-                bookedStatus=true});
-        return (<TouchableOpacity 
-            style={bookedStatus ? Styles.timeBodyItemDisabled : status && status == duration ? Styles.timeBodyItemSelected : Styles.timeBodyItem} 
+    renderDuration(duration,type,status){
+        return (<TouchableOpacity style={status && status == duration ? Styles.timeBodyItemSelected : Styles.timeBodyItem} 
             key={duration}
             onPress={()=>this.setState({duration,durationSendEmpty:false})}
         >
@@ -140,7 +127,7 @@ export default class RoomBook extends React.Component{
                                 <Text style={Styles.subHeading}>DURATION</Text>
                                 <View style={[Styles.DateBody,
                                     this.state.durationSendEmpty && Styles.borderColorRed]}>
-                                    {this.duration.map((time)=>this.renderDuration(time.time,time.type,this.state.duration,tempTimeBooked))}
+                                    {this.duration.map((time)=>this.renderDuration(time.time,time.type,this.state.duration))}
                                 </View>
                                 <Text style={Styles.subHeading}>GUEST</Text>
                                 <InputBoxInside title={"Invite"}
