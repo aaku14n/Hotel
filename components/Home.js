@@ -12,7 +12,10 @@ export default class Home extends React.Component{
             scrollEnabled={false}
         >
             {!this.props.isLogedin.isLogedin ?
-                <LinearGradient colors={["#3D669C", "#9866CC"]}
+                <LinearGradient 
+                    colors={["#3D669C", "#9866CC"]}
+                    start={[0, 0]} 
+                    end={[1, 1]}
                     style={Styles.HomeSignin}
                 >
                     <SigninContainer />

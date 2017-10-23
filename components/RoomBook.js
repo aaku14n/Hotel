@@ -73,12 +73,12 @@ export default class RoomBook extends React.Component{
         var bookedStatus = false;
         booked.map((item)=>{
             if (_.findIndex(timeArray,o=>o==item.start)  >  _.findIndex(timeArray,o=>o==this.state.time))
-                var timeAvilableIndex = _.findIndex(durationArray,o=>o==_.findIndex(timeArray,o=>o==item.start)  -  _.findIndex(timeArray,o=>o==this.state.time)) ;
+                var timeAvailableIndex = _.findIndex(durationArray,o=>o==_.findIndex(timeArray,o=>o==item.start)  -  _.findIndex(timeArray,o=>o==this.state.time)) ;
             // else 
-            //     var timeAvilableIndex = 8;
+            //     var timeAvailableIndex = 8;
             let timeEndIndex = _.findIndex(durationArray,o=>o==_.findIndex(timeArray,o=>o==item.start)  -  _.findIndex(timeArray,o=>o==this.state.time)) ;
            
-            if(this.state.time !==null && _.findIndex(durationArray,o=>o==duration) > timeAvilableIndex ) 
+            if(this.state.time !==null && _.findIndex(durationArray,o=>o==duration) > timeAvailableIndex ) 
                 bookedStatus=true});
         return (<TouchableOpacity 
             style={bookedStatus ? Styles.timeBodyItemDisabled : status && status == duration ? Styles.timeBodyItemSelected : Styles.timeBodyItem} 
@@ -99,7 +99,7 @@ export default class RoomBook extends React.Component{
         if(this.state.date == null) {this.setState({dateSendEmpty:true});status=true}
         if(this.state.time == null) {this.setState({timeSendEmpty:true});status=true}
         if(this.state.duration == null) {this.setState({durationSendEmpty:true});status=true}
-        if(!status) Alert.alert("Thanx");
+        if(!status) Alert.alert("Thanks");
     }
     render()
     {
