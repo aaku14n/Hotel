@@ -67,7 +67,7 @@ const Styles = StyleSheet.create({
         justifyContent: "center"
     },
     timeBodyItemDisabled: {
-        width: "16.7%",
+        width: width / 6,
         borderWidth: 0.5,
         padding: 5,
         backgroundColor: "#b1071c",
