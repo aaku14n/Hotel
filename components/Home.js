@@ -2,6 +2,7 @@ import React from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { LinearGradient } from "expo";
 import SigninContainer from "../containers/SigninContainer";
+import UserDashBoard from "../components/userDashboard";
 import UserChoiceContainer from "../containers/UserChoiceContainer";
 
 import Styles from "./css/SigninStyle";
@@ -22,6 +23,7 @@ export default class Home extends React.Component {
                         <SigninContainer />
                     </LinearGradient>
                 ) : (
+                    // <UserDashBoard />
                     <UserChoiceContainer />
                 )}
             </KeyboardAwareScrollView>

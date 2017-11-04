@@ -155,8 +155,15 @@ export default class RoomBook extends React.Component {
                             : Styles.timeBodyItem
                 }
                 key={duration}
-                onPress={() =>
-                    this.setState({ duration, durationSendEmpty: false })}
+                onPress={
+                    !bookedStatus
+                        ? () =>
+                            this.setState({
+                                duration,
+                                durationSendEmpty: false
+                            })
+                        : null
+                }
             >
                 <Text style={Styles.DateBodyItemDate}>{duration}</Text>
                 <Text style={Styles.DateBodyItemDay}>{type}</Text>
